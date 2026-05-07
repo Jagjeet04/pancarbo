@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  pancarbo-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pancarbo-greenfuels
+    ports:
+      - "8501:8501"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DEBUG=False
+      - LOG_LEVEL=INFO
+      - DEPLOYMENT_PLATFORM=DOCKER
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./reports:/app/reports
+      - ./notebooks:/app/notebooks
+    restart: unless-stopped
+    networks:
+      - pancarbo-network
+
+networks:
+  pancarbo-network:
+    driver: bridge
