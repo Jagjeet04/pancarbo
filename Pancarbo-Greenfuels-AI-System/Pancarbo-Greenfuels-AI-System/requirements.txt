@@ -51,3 +51,9 @@ tensorboard==2.13.0
 pytest==7.4.0
 black==23.7.0
 flake8==6.0.0
+
+app.py
+requirements.txt
+README.md
+your_notebook.ipynb (optional)
+model files / dataset files
